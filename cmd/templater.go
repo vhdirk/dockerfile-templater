@@ -14,7 +14,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/bossm8/dockerfile-templater/utils"
+	"github.com/vhdirk/dockerfile-templater/utils"
 )
 
 var (

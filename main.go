@@ -2,15 +2,15 @@
 // Generates Dockerfiles from a template with different variants read from
 // yaml files
 
-// Author: <bossm8@hotmail.com>
+// Author: <vhdirk@hotmail.com>
 
 package main
 
 import (
 	"log"
 
-	"github.com/bossm8/dockerfile-templater/cmd"
-	"github.com/bossm8/dockerfile-templater/utils"
+	"github.com/vhdirk/dockerfile-templater/cmd"
+	"github.com/vhdirk/dockerfile-templater/utils"
 )
 
 func main() {

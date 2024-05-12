@@ -225,7 +225,7 @@ Example usage:
 docker run -it --rm \
            --user $(id -u):$(id -g) \
            -v ${PWD}:${PWD} -w ${PWD} \
-       ghcr.io/bossm8/dockerfile-templater:latest \
+       ghcr.io/vhdirk/dockerfile-templater:latest \
            --dockerfile.tpl Dockerfile.tpl \
            --variants.def variants.yml \
            --variants.cfg variants.cfg.yml
@@ -244,7 +244,7 @@ stages:
 generate-dockerfiles:
     stage: pre-build
     image:
-        name: ghcr.io/bossm8/dockerfile-templater:debug
+        name: ghcr.io/vhdirk/dockerfile-templater:debug
         entrypoint: [""]
     script:
         - templater
@@ -278,7 +278,7 @@ build-images:
 
 ### Binary
 
-Find binaries for your OS in the [releases](https://github.com/bossm8/dockerfile-templater/releases).
+Find binaries for your OS in the [releases](https://github.com/vhdirk/dockerfile-templater/releases).
 
 ## Examples
 

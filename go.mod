@@ -1,4 +1,4 @@
-module github.com/bossm8/dockerfile-templater
+module github.com/vhdirk/dockerfile-templater
 
 go 1.20
 

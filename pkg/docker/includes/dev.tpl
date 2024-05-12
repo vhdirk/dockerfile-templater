@@ -9,10 +9,10 @@ RUN apt-get update && \
 ENV CGO_ENABLED=0
 
 WORKDIR ${GOPATH}/src/
-COPY . . 
+COPY . .
 
 RUN go get -d -v
-RUN go build -o /dockerfile-templater -ldflags="-X github.com/bossm8/dockerfile-templater/cmd.version=${VERSION}"
+RUN go build -o /dockerfile-templater -ldflags="-X github.com/vhdirk/dockerfile-templater/cmd.version=${VERSION}"
 
 # ---
 {{ end }}

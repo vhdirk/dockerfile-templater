@@ -7,7 +7,7 @@ before:
 
 builds:
   - binary: dockerfile-templater
-    ldflags: -X github.com/bossm8/dockerfile-templater/cmd.version={{ .Version }}
+    ldflags: -X github.com/vhdirk/dockerfile-templater/cmd.version={{ .Version }}
     env:
       - CGO_ENABLED=0
     goos:
@@ -53,29 +53,29 @@ changelog:
       - '^test:'
 
 docker_manifests:
-  - name_template: 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}'
+  - name_template: 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}'
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-armv7'
 
-  - name_template: 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug'
+  - name_template: 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug'
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-armv7'
 
-  - name_template: 'ghcr.io/bossm8/dockerfile-templater:latest'
+  - name_template: 'ghcr.io/vhdirk/dockerfile-templater:latest'
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-armv7'
 
-  - name_template: 'ghcr.io/bossm8/dockerfile-templater:debug'
+  - name_template: 'ghcr.io/vhdirk/dockerfile-templater:debug'
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-armv7'
 
 dockers:
   - use: buildx
@@ -83,8 +83,8 @@ dockers:
     goarch: amd64
     dockerfile: dockerfiles/Dockerfile.templater.latest
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:latest-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:latest-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-amd64'
     build_flag_templates:
       - '--pull'
       # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
@@ -92,12 +92,12 @@ dockers:
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/amd64'
 
   - use: buildx
@@ -105,20 +105,20 @@ dockers:
     goarch: arm64
     dockerfile: dockerfiles/Dockerfile.templater.latest
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:latest-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:latest-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-arm64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/arm64'
 
   - use: buildx
@@ -127,20 +127,20 @@ dockers:
     goarm: '7'
     dockerfile: dockerfiles/Dockerfile.templater.latest
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:latest-armv7'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:latest-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-armv7'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/arm/v7'
 
   - use: buildx
@@ -148,20 +148,20 @@ dockers:
     goarch: amd64
     dockerfile: dockerfiles/Dockerfile.templater.debug
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:debug-amd64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:debug-amd64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-amd64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/amd64'
 
   - use: buildx
@@ -169,20 +169,20 @@ dockers:
     goarch: arm64
     dockerfile: dockerfiles/Dockerfile.templater.debug
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:debug-arm64'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:debug-arm64'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-arm64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/arm64'
 
   - use: buildx
@@ -191,20 +191,20 @@ dockers:
     goarm: '7'
     dockerfile: dockerfiles/Dockerfile.templater.debug
     image_templates:
-      - 'ghcr.io/bossm8/dockerfile-templater:debug-armv7'
-      - 'ghcr.io/bossm8/dockerfile-templater:{{ .Version }}-debug-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:debug-armv7'
+      - 'ghcr.io/vhdirk/dockerfile-templater:{{ .Version }}-debug-armv7'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
       - '--label=org.opencontainers.image.description="Generate Dockerfiles in different variants from a template"'
       - '--label=org.opencontainers.image.source={{ .GitURL }}'
       - '--label=org.opencontainers.image.url={{ .GitURL }}'
-      - '--label=org.opencontainers.image.documentation=https://github.com/bossm8/dockerfile-templater/tree/main'
+      - '--label=org.opencontainers.image.documentation=https://github.com/vhdirk/dockerfile-templater/tree/main'
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
       - '--label=org.opencontainers.image.version={{ .Version }}'
       - '--label=org.opencontainers.image.licenses="BSD-3-Clause license"'
-      - '--label=org.opencontainers.image.authors=bossm8'
+      - '--label=org.opencontainers.image.authors=vhdirk'
       - '--platform=linux/arm/v7'
 
 # The lines beneath this are called `modelines`. See `:help modeline`
